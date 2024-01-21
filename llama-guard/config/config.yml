@@ -1,4 +1,8 @@
 models:
+  - type: main
+    engine: openai
+    model: gpt-3.5-turbo-instruct
+
   - type: llama_guard
     engine: vllm_openai
     parameters:
