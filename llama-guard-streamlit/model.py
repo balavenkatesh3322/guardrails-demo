@@ -24,13 +24,13 @@ def moderation_prompt_for_chat(chat):
     role = "Agent" if len(conversation) % 2 == 0 else "User"
     prompt = f"""[INST] Task: Check if there is unsafe content in '{role}' messages in conversations according our safety policy with the below categories.
 
-<BEGIN UNSAFE CONTENT CATEGORIES>
-{unsafe_categories}
-<END UNSAFE CONTENT CATEGORIES>
+    <BEGIN UNSAFE CONTENT CATEGORIES>
+    {unsafe_categories}
+    <END UNSAFE CONTENT CATEGORIES>
 
-<BEGIN CONVERSATION>
+    <BEGIN CONVERSATION>
 
-"""
+    """
 
     # Alternate User/Agent turns, inserting 2 newlines between each
     for i, m in enumerate(conversation):

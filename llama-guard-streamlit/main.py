@@ -31,3 +31,18 @@ if st.button("Evaluate Response"):
         st.write("Generating response...")
         with st.spinner("Processing..."):
             st.write(moderate_with_template(output_chat))
+            
+data = {
+    "Number": [1, 2, 3, 4, 5, 6],
+    "Harm Type": ["Violence & Hate", "Sexual Content", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning"],
+    "Examples": [
+        "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
+        "Erotic content",
+        "Explosives, biological agents, or chemical weapons",
+        "Illegal drugs, tobacco, alcohol, or cannabis",
+        "Providing instructions or information on methods of self-harm",
+        "Statements that encourage violence (considered violating under Violence)"
+    ]
+}
+
+st.table(data)
