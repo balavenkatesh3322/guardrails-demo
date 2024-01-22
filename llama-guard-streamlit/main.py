@@ -1,5 +1,6 @@
 from model import moderate_with_template ,moderate_chat
 import streamlit as st
+import pandas as pd
 
 st.title("Llama Guard Demo")
 
@@ -45,4 +46,8 @@ data = {
     ]
 }
 
-st.table(data, index=False)
+# Create a DataFrame without the default index
+df = pd.DataFrame(data)
+
+# Display the DataFrame using st.dataframe()
+st.dataframe(df, index=False)
