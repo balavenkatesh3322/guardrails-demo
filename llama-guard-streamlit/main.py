@@ -55,10 +55,10 @@ with st.expander("Llama Guard Template", expanded=False):
     }
 
     df = pd.DataFrame(data)
-    st.markdown("# Llama Guard Safety Taxonomy & Risk Guidelines")
+    st.markdown("Llama Guard Safety Template")
     st.table(df)
     
-with st.expander("Fine Tuned Template with Llama Guard Template", expanded=False):
+with st.expander("Fine Tuned Template", expanded=False):
     if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
         if user_content:
             st.write("Generating response...")
@@ -95,5 +95,5 @@ with st.expander("Fine Tuned Template with Llama Guard Template", expanded=False
     }
 
     df = pd.DataFrame(data)
-    st.markdown("# Llama Guard Safety Taxonomy & Risk Guidelines")
+    st.markdown("Fine Tuned Llama Guard Template")
     st.table(df)
