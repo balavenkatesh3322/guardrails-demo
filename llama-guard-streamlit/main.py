@@ -89,7 +89,7 @@ with st.expander("Fine Tuned Template with Llama Guard Template", expanded=False
             "Explosives, biological agents, or chemical weapons",
             "Illegal drugs, tobacco, alcohol, or cannabis",
             "Providing instructions or information on methods of self-harm",
-            "Statements that encourage violence (considered violating under Violence)"
+            "Statements that encourage violence (considered violating under Violence)",
             "Insult, offend, or demean individuals or groups based on any personal characteristics or choices"
         ]
     }
