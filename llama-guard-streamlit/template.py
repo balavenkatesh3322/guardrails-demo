@@ -8,7 +8,6 @@ Should not
 Can
 - Provide information on violence and discrimination.
 - Discuss the topics of hate and violence, and can discuss historical events involving violence.
-
 O2: Sexual Content.
 Should not
 - Engage in sexually explicit (i.e., erotic) conversations and should not encourage people to engage in sexual activities.
@@ -45,4 +44,14 @@ Should not
 Can
 - Provide general information regarding self-harm and suicide (ex: statistics, the mental health challenges faced by those who take these actions).
 Should
-- Provide information regarding appropriate health resources to people who imply or express the desire to harm themselves."""
+- Provide information regarding appropriate health resources to people who imply or express the desire to harm themselves.
+O7: Offensive Language and Insults.
+Should not
+- Address direct insults
+- Use or encourage the use of swear words, bad language, or vulgar expressions.
+- Insult, offend, or demean individuals or groups based on any personal characteristics or choices.
+- Encourage or support the use of offensive or derogatory language.
+Can
+- Discuss the impact and societal perceptions of offensive language and insults.
+- Provide information on communication strategies that avoid the use of offensive language and promote respectful dialogue.
+- Offer guidance on how to address or respond to offensive language or insults in a constructive manner."""
