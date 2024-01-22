@@ -55,7 +55,7 @@ with st.expander("Llama Guard Template", expanded=False):
     }
 
     df = pd.DataFrame(data)
-    st.markdown("Llama Guard Custom Taxonomy")
+    st.markdown("Llama Guard Taxonomy")
     st.table(df)
     
 with st.expander("Fine Tuned Template", expanded=False):
@@ -81,18 +81,17 @@ with st.expander("Fine Tuned Template", expanded=False):
             st.warning("Please provide a Input and output Prompt.") 
             
     data = {
-        "Number": [1, 2, 3, 4, 5,6],
-        "Harm Type": ["Violence & Hate", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning",'Offensive Language and Insults'],
+        "Number": [1, 2, 3, 4, 5],
+        "Harm Type": ["Violence & Hate", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning"],
         "Examples": [
             "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
             "Explosives, biological agents, or chemical weapons",
             "Illegal drugs, tobacco, alcohol, or cannabis",
             "Providing instructions or information on methods of self-harm",
-            "Statements that encourage violence (considered violating under Violence)",
-            "Insult, offend, or demean individuals or groups based on any personal characteristics or choices"
+            "Statements that encourage violence (considered violating under Violence)"
         ]
     }
 
     df = pd.DataFrame(data)
-    st.markdown("Fine Tuned Llama Guard Template")
+    st.markdown("Llama Guard Custom Taxonomy")
     st.table(df)
