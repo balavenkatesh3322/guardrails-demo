@@ -20,7 +20,7 @@ output_chat = [
 
 # st.markdown("# Zero-shot technique")
 with st.expander("Llama Guard Template", expanded=False):
-    if st.button("Scan Input Prompt"):
+    if st.button("Scan Input Prompt",key="llama_guard_template_input"):
         if user_content:
             st.write("Generating response...")
             with st.spinner("Processing..."):
@@ -31,7 +31,7 @@ with st.expander("Llama Guard Template", expanded=False):
             st.warning("Please provide a input Prompt.") 
 
 
-    if st.button("Scan Model Response"):
+    if st.button("Scan Model Response",key="llama_guard_template_output"):
         if user_content and model_response:
             st.write("Generating response...")
             with st.spinner("Processing..."):
@@ -59,7 +59,7 @@ with st.expander("Llama Guard Template", expanded=False):
     st.table(df)
     
 with st.expander("Fine Tuned Template with Llama Guard Template", expanded=False):
-    if st.button("Scan Input Prompt"):
+    if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
         if user_content:
             st.write("Generating response...")
             with st.spinner("Processing..."):
@@ -70,7 +70,7 @@ with st.expander("Fine Tuned Template with Llama Guard Template", expanded=False
             st.warning("Please provide a input Prompt.") 
 
 
-    if st.button("Scan Model Response"):
+    if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
         if user_content and model_response:
             st.write("Generating response...")
             with st.spinner("Processing..."):
