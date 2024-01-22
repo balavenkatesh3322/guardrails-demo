@@ -16,22 +16,30 @@ output_chat = [
     {"role": "assistant", "content": str(model_response)},
 ]
 
-
 #moderate_chat(output_chat)
 
+# st.markdown("# Zero-shot technique")
+with st.expander("Zero-shot technique", expanded=False):
+    if st.button("Scan Input Prompt"):
+        if user_content:
+            st.write("Generating response...")
+            with st.spinner("Processing..."):
+                #st.write()
+                model_output = moderate_with_template(input_chat)
+                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+        else:
+            st.warning("Please provide a input Prompt.") 
 
-if st.button("Evaluate Prompt"):
-    if user_content:
-        st.write("Generating response...")
-        with st.spinner("Processing..."):
-            st.write(moderate_with_template(input_chat))
 
-
-if st.button("Evaluate Response"):
-    if output_chat:
-        st.write("Generating response...")
-        with st.spinner("Processing..."):
-            st.write(moderate_with_template(output_chat))
+    if st.button("Scan Model Response"):
+        if user_content and model_response:
+            st.write("Generating response...")
+            with st.spinner("Processing..."):
+                model_output = moderate_with_template(output_chat)
+                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                #st.write()
+        else:
+            st.warning("Please provide a Input and output Prompt.") 
             
 data = {
     "Number": [1, 2, 3, 4, 5, 6],
@@ -46,7 +54,6 @@ data = {
     ]
 }
 
-# Create a DataFrame without the default index
 df = pd.DataFrame(data)
 
 st.table(df)
