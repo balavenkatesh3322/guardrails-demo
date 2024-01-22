@@ -58,42 +58,42 @@ with st.expander("Llama Guard Template", expanded=False):
     st.markdown("Llama Guard Safety Template")
     st.table(df)
     
-with st.expander("Fine Tuned Template", expanded=False):
-    if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
-        if user_content:
-            st.write("Generating response...")
-            with st.spinner("Processing..."):
-                #st.write()
-                model_output = moderate_chat(input_chat)
-                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-        else:
-            st.warning("Please provide a input Prompt.") 
+# with st.expander("Fine Tuned Template", expanded=False):
+#     if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
+#         if user_content:
+#             st.write("Generating response...")
+#             with st.spinner("Processing..."):
+#                 #st.write()
+#                 model_output = moderate_chat(input_chat)
+#                 st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+#         else:
+#             st.warning("Please provide a input Prompt.") 
 
 
-    if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
-        if user_content and model_response:
-            st.write("Generating response...")
-            with st.spinner("Processing..."):
-                model_output = moderate_chat(output_chat)
-                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-                #st.write()
-        else:
-            st.warning("Please provide a Input and output Prompt.") 
+#     if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
+#         if user_content and model_response:
+#             st.write("Generating response...")
+#             with st.spinner("Processing..."):
+#                 model_output = moderate_chat(output_chat)
+#                 st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+#                 #st.write()
+#         else:
+#             st.warning("Please provide a Input and output Prompt.") 
             
-    data = {
-        "Number": [1, 2, 3, 4, 5, 6,7],
-        "Harm Type": ["Violence & Hate", "Sexual Content", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning",'Offensive Language and Insults'],
-        "Examples": [
-            "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
-            "Erotic content",
-            "Explosives, biological agents, or chemical weapons",
-            "Illegal drugs, tobacco, alcohol, or cannabis",
-            "Providing instructions or information on methods of self-harm",
-            "Statements that encourage violence (considered violating under Violence)",
-            "Insult, offend, or demean individuals or groups based on any personal characteristics or choices"
-        ]
-    }
+#     data = {
+#         "Number": [1, 2, 3, 4, 5, 6,7],
+#         "Harm Type": ["Violence & Hate", "Sexual Content", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning",'Offensive Language and Insults'],
+#         "Examples": [
+#             "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
+#             "Erotic content",
+#             "Explosives, biological agents, or chemical weapons",
+#             "Illegal drugs, tobacco, alcohol, or cannabis",
+#             "Providing instructions or information on methods of self-harm",
+#             "Statements that encourage violence (considered violating under Violence)",
+#             "Insult, offend, or demean individuals or groups based on any personal characteristics or choices"
+#         ]
+#     }
 
-    df = pd.DataFrame(data)
-    st.markdown("Fine Tuned Llama Guard Template")
-    st.table(df)
+#     df = pd.DataFrame(data)
+#     st.markdown("Fine Tuned Llama Guard Template")
+#     st.table(df)
