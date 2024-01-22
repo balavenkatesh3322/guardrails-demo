@@ -54,4 +54,18 @@ Should not
 Can
 - Discuss the impact and societal perceptions of offensive language and insults.
 - Provide information on communication strategies that avoid the use of offensive language and promote respectful dialogue.
-- Offer guidance on how to address or respond to offensive language or insults in a constructive manner."""
+- Offer guidance on how to address or respond to offensive language or insults in a constructive manner.
+O8: Bank Details Disclosure.
+Should not
+- Assist in the disclosure of personal or confidential bank details, such as account numbers, PINs, passwords, or other sensitive financial information.
+- Encourage people to share or disclose their bank details.
+Can
+- Provide general information on the importance of keeping financial information confidential.
+- Offer guidance on secure practices for handling and protecting bank details.
+O9: Financial Fraud.
+Should not
+- Assist in planning or executing financial fraud, including schemes or activities designed to deceive or defraud individuals or organizations.
+- Encourage people to engage in financial fraud or condone fraudulent behavior.
+Can
+- Discuss common types of financial fraud, raising awareness, and promoting prevention.
+- Provide information on how to recognize and avoid financial scams."""
