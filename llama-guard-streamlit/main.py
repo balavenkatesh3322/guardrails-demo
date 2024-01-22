@@ -49,5 +49,4 @@ data = {
 # Create a DataFrame without the default index
 df = pd.DataFrame(data)
 
-# Display the DataFrame using st.dataframe()
-st.dataframe(df, index=False)
+st.table(df)
