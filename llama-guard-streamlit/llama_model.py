@@ -94,7 +94,7 @@ if st.button("Call LLM model") :
                         #st.write()
                         model_output = moderate_with_template(input_chat)
                         st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-                        st.session_state.llama_guard_template_input_clicked = True
+                        st.session_state.llama_guard_template_input_clicked = False
                 else:
                     st.warning("Please provide a input Prompt.") 
 
@@ -105,7 +105,7 @@ if st.button("Call LLM model") :
                     with st.spinner("Processing..."):
                         model_output = moderate_with_template(output_chat)
                         st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-                        st.session_state.llama_guard_template_output_clicked = True
+                        st.session_state.llama_guard_template_output_clicked = False
                         #st.write()
                 else:
                     st.warning("Please provide a Input and output Prompt.") 
