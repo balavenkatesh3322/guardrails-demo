@@ -79,15 +79,16 @@ with st.form(key='my_form'):
                 st.write("Response:")
                 st.write(response)
             
-            input_chat = [{"role": "user", "content": str(llm_question)}]
-
-            output_chat = [
-                {"role": "user", "content": str(llm_question)},
-                {"role": "assistant", "content": str(response)},
-            ]
+           
     else:
         st.warning("Please provide a input.") 
 
+input_chat = [{"role": "user", "content": str(llm_question)}]
+
+output_chat = [
+    {"role": "user", "content": str(llm_question)},
+    {"role": "assistant", "content": str(response)},
+]
 
 with st.expander("Llama Guard Template", expanded=False):
     if st.button("Scan Input Prompt",key="llama_guard_template_input"):
