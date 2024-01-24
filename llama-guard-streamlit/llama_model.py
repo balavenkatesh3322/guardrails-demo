@@ -33,18 +33,20 @@ if "llama_guard_template_input_clicked" not in st.session_state:
 if "llama_guard_template_output_clicked" not in st.session_state:
     st.session_state.llama_guard_template_output_clicked = False
     
+if "response" not in st.session_state:
+    st.session_state.response = ""
     
-llm_question = st.text_input("Type your input prompt here:")
+st.session_state.llm_question = st.text_input("Type your input prompt here:")
 
 with st.form(key='my_form'):
     submit_button = st.form_submit_button("Call LLM model")
     if submit_button:
-        if llm_question:
+        if st.session_state.llm_question:
             st.write("Generating response...")
             with st.spinner("Processing..."):
             
                 response_placeholder = st.empty()
-                st.session_state.llm_question = llm_question
+                #st.session_state.llm_question = llm_question
 
                 template = """ <s>[INST] <<SYS>>
                 Your task is to answer the following question based on this area of knowledge.
@@ -75,24 +77,24 @@ with st.form(key='my_form'):
                 llm_chain = LLMChain(prompt=prompt, llm=llm)
                 
 
-                response = llm_chain.run(llm_question)
+                st.session_state.response = llm_chain.run(st.session_state.llm_question)
                 st.write("Response:")
-                st.write(response)
+                st.write(st.session_state.response)
             
            
     else:
         st.warning("Please provide a input.") 
 
-input_chat = [{"role": "user", "content": str(llm_question)}]
+input_chat = [{"role": "user", "content": str(st.session_state.llm_question)}]
 
 output_chat = [
-    {"role": "user", "content": str(llm_question)},
-    {"role": "assistant", "content": str(response)},
+    {"role": "user", "content": str(st.session_state.llm_question)},
+    {"role": "assistant", "content": str(st.session_state.response)},
 ]
 
 with st.expander("Llama Guard Template", expanded=False):
     if st.button("Scan Input Prompt",key="llama_guard_template_input"):
-        if llm_question:
+        if st.session_state.llm_question:
             st.write("Generating response...")
             with st.spinner("Processing..."):
                 #st.write()
@@ -104,7 +106,7 @@ with st.expander("Llama Guard Template", expanded=False):
 
 
     if st.button("Scan Model Response",key="llama_guard_template_output"):
-        if llm_question and response:
+        if st.session_state.llm_question:
             st.write("Generating response...")
             with st.spinner("Processing..."):
                 model_output = moderate_with_template(output_chat)
@@ -133,7 +135,7 @@ with st.expander("Llama Guard Template", expanded=False):
 
 with st.expander("Fine Tuned Template", expanded=False):
     if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
-        if llm_question:
+        if st.session_state.llm_question:
             st.write("Generating response...")
             with st.spinner("Processing..."):
                 #st.write()
@@ -144,7 +146,7 @@ with st.expander("Fine Tuned Template", expanded=False):
 
 
     if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
-        if llm_question and response:
+        if st.session_state.llm_question and st.session_state.response:
             st.write("Generating response...")
             with st.spinner("Processing..."):
                 model_output = moderate_chat(output_chat)
