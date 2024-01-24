@@ -4,5 +4,6 @@ streamlit
 langchain
 pydantic
 accelerate
+torch==1.13
 #faiss-gpu
 #sentence-transformers

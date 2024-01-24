@@ -21,6 +21,19 @@ if os.path.exists(model_basename):
 else:
     st.write("Downloading model...")
     model_path = hf_hub_download(repo_id=model_name_or_path, filename=model_basename)
+
+    
+# Initialize session state
+if "llm_question" not in st.session_state:
+    st.session_state.llm_question = ""
+
+if "llama_guard_template_input_clicked" not in st.session_state:
+    st.session_state.llama_guard_template_input_clicked = False
+
+if "llama_guard_template_output_clicked" not in st.session_state:
+    st.session_state.llama_guard_template_output_clicked = False
+    
+    
  
 llm_question = st.text_input("Type your input prompt here:")
 
@@ -30,6 +43,7 @@ if st.button("Call LLM model") :
         with st.spinner("Processing..."):
         
             response_placeholder = st.empty()
+            st.session_state.llm_question = llm_question
 
             template = """ <s>[INST] <<SYS>>
             Your task is to answer the following question based on this area of knowledge.
@@ -80,6 +94,7 @@ if st.button("Call LLM model") :
                         #st.write()
                         model_output = moderate_with_template(input_chat)
                         st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                        st.session_state.llama_guard_template_input_clicked = True
                 else:
                     st.warning("Please provide a input Prompt.") 
 
@@ -90,6 +105,7 @@ if st.button("Call LLM model") :
                     with st.spinner("Processing..."):
                         model_output = moderate_with_template(output_chat)
                         st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                        st.session_state.llama_guard_template_output_clicked = True
                         #st.write()
                 else:
                     st.warning("Please provide a Input and output Prompt.") 
