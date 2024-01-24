@@ -36,6 +36,9 @@ if "llama_guard_template_output_clicked" not in st.session_state:
 if "response" not in st.session_state:
     st.session_state.response = ""
     
+if "response_content" not in st.session_state:
+    st.session_state.response_content = ""
+    
 st.session_state.llm_question = st.text_input("Type your input prompt here:")
 
 with st.form(key='my_form'):
@@ -78,12 +81,13 @@ with st.form(key='my_form'):
                 
 
                 st.session_state.response = llm_chain.run(st.session_state.llm_question)
+                st.session_state.response_content = st.session_state.response
                 st.write("Response:")
-                st.write(st.session_state.response)
+                st.write(st.session_state.response_content)
             
            
-    else:
-        st.warning("Please provide a input.") 
+    # else:
+    #     st.warning("Please provide a input.") 
 
 input_chat = [{"role": "user", "content": str(st.session_state.llm_question)}]
 
