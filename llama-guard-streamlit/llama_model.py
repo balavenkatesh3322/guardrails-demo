@@ -37,7 +37,8 @@ if "llama_guard_template_output_clicked" not in st.session_state:
 llm_question = st.text_input("Type your input prompt here:")
 
 with st.form(key='my_form'):
-    if st.button("Call LLM model") :
+    submit_button = st.form_submit_button("Call LLM model")
+    if submit_button:
         if llm_question:
             st.write("Generating response...")
             with st.spinner("Processing..."):
