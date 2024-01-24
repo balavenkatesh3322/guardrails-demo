@@ -89,83 +89,83 @@ with st.form(key='my_form'):
         st.warning("Please provide a input.") 
 
 
-    with st.expander("Llama Guard Template", expanded=False):
-        if st.button("Scan Input Prompt",key="llama_guard_template_input"):
-            if llm_question:
-                st.write("Generating response...")
-                with st.spinner("Processing..."):
-                    #st.write()
-                    model_output = moderate_with_template(input_chat)
-                    st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-                    st.session_state.llama_guard_template_input_clicked = False
-            else:
-                st.warning("Please provide a input Prompt.") 
+with st.expander("Llama Guard Template", expanded=False):
+    if st.button("Scan Input Prompt",key="llama_guard_template_input"):
+        if llm_question:
+            st.write("Generating response...")
+            with st.spinner("Processing..."):
+                #st.write()
+                model_output = moderate_with_template(input_chat)
+                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                st.session_state.llama_guard_template_input_clicked = False
+        else:
+            st.warning("Please provide a input Prompt.") 
 
 
-        if st.button("Scan Model Response",key="llama_guard_template_output"):
-            if llm_question and response:
-                st.write("Generating response...")
-                with st.spinner("Processing..."):
-                    model_output = moderate_with_template(output_chat)
-                    st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-                    st.session_state.llama_guard_template_output_clicked = False
-                    #st.write()
-            else:
-                st.warning("Please provide a Input and output Prompt.") 
-                
-        data = {
-            "Number": [1, 2, 3, 4, 5, 6],
-            "Harm Type": ["Violence & Hate", "Sexual Content", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning"],
-            "Examples": [
-                "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
-                "Erotic content",
-                "Explosives, biological agents, or chemical weapons",
-                "Illegal drugs, tobacco, alcohol, or cannabis",
-                "Providing instructions or information on methods of self-harm",
-                "Statements that encourage violence (considered violating under Violence)"
-            ]
-        }
+    if st.button("Scan Model Response",key="llama_guard_template_output"):
+        if llm_question and response:
+            st.write("Generating response...")
+            with st.spinner("Processing..."):
+                model_output = moderate_with_template(output_chat)
+                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                st.session_state.llama_guard_template_output_clicked = False
+                #st.write()
+        else:
+            st.warning("Please provide a Input and output Prompt.") 
+            
+    data = {
+        "Number": [1, 2, 3, 4, 5, 6],
+        "Harm Type": ["Violence & Hate", "Sexual Content", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning"],
+        "Examples": [
+            "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
+            "Erotic content",
+            "Explosives, biological agents, or chemical weapons",
+            "Illegal drugs, tobacco, alcohol, or cannabis",
+            "Providing instructions or information on methods of self-harm",
+            "Statements that encourage violence (considered violating under Violence)"
+        ]
+    }
 
-        df = pd.DataFrame(data)
-        st.markdown("Llama Guard Taxonomy")
-        st.table(df)
+    df = pd.DataFrame(data)
+    st.markdown("Llama Guard Taxonomy")
+    st.table(df)
 
-    with st.expander("Fine Tuned Template", expanded=False):
-        if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
-            if llm_question:
-                st.write("Generating response...")
-                with st.spinner("Processing..."):
-                    #st.write()
-                    model_output = moderate_chat(input_chat)
-                    st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-            else:
-                st.warning("Please provide a input Prompt.") 
+with st.expander("Fine Tuned Template", expanded=False):
+    if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
+        if llm_question:
+            st.write("Generating response...")
+            with st.spinner("Processing..."):
+                #st.write()
+                model_output = moderate_chat(input_chat)
+                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+        else:
+            st.warning("Please provide a input Prompt.") 
 
 
-        if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
-            if llm_question and response:
-                st.write("Generating response...")
-                with st.spinner("Processing..."):
-                    model_output = moderate_chat(output_chat)
-                    st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
-                    #st.write()
-            else:
-                st.warning("Please provide a Input and output Prompt.") 
-                
-        data = {
-            "Number": [1, 2, 3, 4, 5],
-            "Harm Type": ["Violence & Hate", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning"],
-            "Examples": [
-                "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
-                "Explosives, biological agents, or chemical weapons",
-                "Illegal drugs, tobacco, alcohol, or cannabis",
-                "Providing instructions or information on methods of self-harm",
-                "Statements that encourage violence (considered violating under Violence)"
-            ]
-        }
+    if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
+        if llm_question and response:
+            st.write("Generating response...")
+            with st.spinner("Processing..."):
+                model_output = moderate_chat(output_chat)
+                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                #st.write()
+        else:
+            st.warning("Please provide a Input and output Prompt.") 
+            
+    data = {
+        "Number": [1, 2, 3, 4, 5],
+        "Harm Type": ["Violence & Hate", "Guns & Illegal weapons", "Regulated or Controlled substances", "Suicide & Self Harm", "Criminal Planning"],
+        "Examples": [
+            "Race, color, religion, national origin, sexual orientation, gender, gender identity, or disability",
+            "Explosives, biological agents, or chemical weapons",
+            "Illegal drugs, tobacco, alcohol, or cannabis",
+            "Providing instructions or information on methods of self-harm",
+            "Statements that encourage violence (considered violating under Violence)"
+        ]
+    }
 
-        df = pd.DataFrame(data)
-        st.markdown("Llama Guard Custom Taxonomy")
-        st.table(df)
+    df = pd.DataFrame(data)
+    st.markdown("Llama Guard Custom Taxonomy")
+    st.table(df)
             
     
