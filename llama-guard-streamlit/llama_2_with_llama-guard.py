@@ -42,7 +42,7 @@ if "response_content" not in st.session_state:
 st.session_state.llm_question = st.text_input("Type your input prompt here:")
 
 with st.form(key='my_form'):
-    submit_button = st.form_submit_button("Call LLM model")
+    submit_button = st.form_submit_button("Generate Text")
     if submit_button:
         if st.session_state.llm_question:
             #st.write("Generating response...")
@@ -85,9 +85,10 @@ with st.form(key='my_form'):
             
            
     # else:
-    #     st.warning("Please provide a input.") 
-st.markdown("<h2 style='text-align: center; color: #666;'>Model Response</h2>", unsafe_allow_html=True)
-st.write(st.session_state.response_content)
+    #     st.warning("Please provide a input.")
+if st.session_state.response_content:
+    st.markdown("<h2 style='text-align: center; color: #666;'>Model Response</h2>", unsafe_allow_html=True)
+    st.write(st.session_state.response_content)
 
 input_chat = [{"role": "user", "content": str(st.session_state.llm_question)}]
 
