@@ -81,10 +81,9 @@ with st.form(key='my_form'):
                 
 
                 st.session_state.response = llm_chain.run(st.session_state.llm_question)
-                st.session_state.response_content = st.empty()
-                #st.write("Response:")
-                st.session_state.response_content.write(st.session_state.response_content)
-            
+                st.session_state.response_content.empty()
+                st.session_state.response_content.write(st.session_state.response)
+                            
            
     # else:
     #     st.warning("Please provide a input.") 
