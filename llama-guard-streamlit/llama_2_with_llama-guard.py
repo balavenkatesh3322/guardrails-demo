@@ -10,7 +10,7 @@ import datetime
 from model import moderate_with_template ,moderate_chat
 import pandas as pd
 
-st.title("Llama Guard Demo")
+st.title("AI Security - Llama Guard Demo")
 
 model_name_or_path = "TheBloke/Llama-2-13B-chat-GGML"
 model_basename = "llama-2-13b-chat.ggmlv3.q5_1.bin"
@@ -19,7 +19,7 @@ if os.path.exists(model_basename):
     #st.write("Using locally available model...")
     model_path = model_basename
 else:
-    st.write("Downloading model...")
+    #st.write("Downloading model...")
     model_path = hf_hub_download(repo_id=model_name_or_path, filename=model_basename)
 
     
@@ -45,7 +45,7 @@ with st.form(key='my_form'):
     submit_button = st.form_submit_button("Call LLM model")
     if submit_button:
         if st.session_state.llm_question:
-            st.write("Generating response...")
+            #st.write("Generating response...")
             with st.spinner("Processing..."):
             
                 response_placeholder = st.empty()
@@ -86,6 +86,7 @@ with st.form(key='my_form'):
            
     # else:
     #     st.warning("Please provide a input.") 
+st.markdown("<h2 style='text-align: center; color: #666;'>Model Response</h2>", unsafe_allow_html=True)
 st.write(st.session_state.response_content)
 
 input_chat = [{"role": "user", "content": str(st.session_state.llm_question)}]
@@ -98,7 +99,7 @@ output_chat = [
 with st.expander("Llama Guard Template", expanded=False):
     if st.button("Scan Input Prompt",key="llama_guard_template_input"):
         if st.session_state.llm_question:
-            st.write("Generating response...")
+            #st.write("Generating response...")
             with st.spinner("Processing..."):
                 #st.write()
                 model_output = moderate_with_template(input_chat)
@@ -110,7 +111,7 @@ with st.expander("Llama Guard Template", expanded=False):
 
     if st.button("Scan Model Response",key="llama_guard_template_output"):
         if st.session_state.llm_question:
-            st.write("Generating response...")
+            #st.write("Generating response...")
             with st.spinner("Processing..."):
                 model_output = moderate_with_template(output_chat)
                 st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
@@ -139,7 +140,7 @@ with st.expander("Llama Guard Template", expanded=False):
 with st.expander("Fine Tuned Template", expanded=False):
     if st.button("Scan Input Prompt",key="llama_guard_fine_tune_template_input"):
         if st.session_state.llm_question:
-            st.write("Generating response...")
+            #st.write("Generating response...")
             with st.spinner("Processing..."):
                 #st.write()
                 model_output = moderate_chat(input_chat)
@@ -150,7 +151,7 @@ with st.expander("Fine Tuned Template", expanded=False):
 
     if st.button("Scan Model Response",key="llama_guard_fine_tune_template_output"):
         if st.session_state.llm_question and st.session_state.response:
-            st.write("Generating response...")
+            #st.write("Generating response...")
             with st.spinner("Processing..."):
                 model_output = moderate_chat(output_chat)
                 st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
