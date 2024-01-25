@@ -37,7 +37,7 @@ if "response" not in st.session_state:
     st.session_state.response = ""
     
 if "response_content" not in st.session_state:
-    st.session_state.response_content = st.empty()
+    st.session_state.response_content = ""
     
 st.session_state.llm_question = st.text_input("Type your input prompt here:")
 
@@ -81,12 +81,12 @@ with st.form(key='my_form'):
                 
 
                 st.session_state.response = llm_chain.run(st.session_state.llm_question)
-                st.session_state.response_content.empty()
-                st.session_state.response_content.write(st.session_state.response)
-                            
+                st.session_state.response_content = st.session_state.response                
+            
            
     # else:
     #     st.warning("Please provide a input.") 
+st.write(st.session_state.response_content)
 
 input_chat = [{"role": "user", "content": str(st.session_state.llm_question)}]
 
