@@ -10,7 +10,7 @@ import datetime
 from model import moderate_with_template ,moderate_chat
 import pandas as pd
 
-st.title("AI Security - Llama Guard Demo")
+st.title("AI Security - Llama Model with Llama Guard Demo")
 
 model_name_or_path = "TheBloke/Llama-2-13B-chat-GGML"
 model_basename = "llama-2-13b-chat.ggmlv3.q5_1.bin"
