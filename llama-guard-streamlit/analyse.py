@@ -46,7 +46,8 @@ with st.form(key='my_form'):
                 model_output = moderate_with_template(input_chat)
                 st.empty()
                 if model_output not in "safe":
-                    st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                    result_text = f"Input Prompt is {model_output}"
+                    st.markdown(f"<div style='background-color: #ffff00;'>{result_text}</div>", unsafe_allow_html=True)
                     
                 else:
                     with st.spinner("Model Generating Text..."):
@@ -93,7 +94,8 @@ with st.form(key='my_form'):
                             model_output = moderate_with_template(output_chat)
                             st.empty()
                             if model_output not in "safe":
-                                st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
+                                result_text = f"LLM Response is {model_output}"
+                                st.markdown(f"<div style='background-color: #ffff00;'>{result_text}</div>", unsafe_allow_html=True)
         
                         st.write(st.session_state.response_content)     
         else:
