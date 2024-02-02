@@ -44,10 +44,11 @@ with st.form(key='my_form'):
             
             with st.spinner("Input Prompt Scanning..."):
                 model_output = moderate_with_template(input_chat)
+                st.empty()
                 if model_output not in "safe":
                     st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
                     
-                else: 
+                else:
                     with st.spinner("Model Generating Text..."):
                     
                         response_placeholder = st.empty()
@@ -90,6 +91,7 @@ with st.form(key='my_form'):
 
                         with st.spinner("Model Response Scanning..."):
                             model_output = moderate_with_template(output_chat)
+                            st.empty()
                             if model_output not in "safe":
                                 st.markdown(f"<div style='background-color: #ffff00;'>{model_output}</div>", unsafe_allow_html=True)
         
